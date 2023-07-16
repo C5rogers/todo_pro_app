@@ -74,6 +74,7 @@ class _NewTaskFormState extends State<NewTaskForm> {
   Future addTask() async {
     if (widget.editMode) {
       _database.tasksDao.updateTask(TasksCompanion(
+          updated_at: drift.Value(DateTime.now()),
           id: drift.Value(widget.task!.id),
           title: drift.Value(_title.text),
           content: drift.Value(_content.text),

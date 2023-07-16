@@ -133,19 +133,23 @@ class TasksDao extends DatabaseAccessor<TodoProDatabase> with _$TasksDaoMixin {
 
 @DriftAccessor(tables: [Subtasks])
 class SubTaskDao extends DatabaseAccessor<TodoProDatabase>
-    with _$TasksDaoMixin {
+    with _$SubTaskDaoMixin {
   // this constructor is required so that the main database can create an instance
   // of this object.
   SubTaskDao(TodoProDatabase db) : super(db);
 
-  // Stream<List<TodoEntry>> todosInCategory(Category category) {
-  //   if (category == null) {
-  //     return (select(todos)..where((t) => isNull(t.category))).watch();
-  //   } else {
-  //     return (select(todos)..where((t) => t.category.equals(category.id)))
-  //         .watch();
-  //   }
-  // }
+  Stream<List<Subtask>> allsubtasks(int parent_id) {
+    return (select(subtasks)..where((t) => t.parent_task.equals(parent_id)))
+        .watch();
+  }
+
+  Future addSubTask(SubtasksCompanion task) async {
+    await into(subtasks).insert(task);
+  }
+
+  Future updateTask(SubtasksCompanion task) async {
+    await update(subtasks).replace(task);
+  }
 }
 
 @DriftAccessor(tables: [Categories])
