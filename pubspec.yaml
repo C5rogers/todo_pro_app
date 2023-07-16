@@ -21,7 +21,12 @@ dependencies:
   path_provider: ^2.0.15
   path:
   # data persistence
+
   shared_preferences: ^2.2.0
+
+  # local auth pkg
+  local_auth: ^2.1.6
+  logger: ^1.4.0
 
 # These are your dev dependencies
 dev_dependencies:

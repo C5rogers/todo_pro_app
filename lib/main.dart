@@ -2,8 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app_pro/config/theme/light/main.dart';
-import 'package:todo_app_pro/features/auth/pages/onboarding_screen.dart';
-import 'package:todo_app_pro/features/auth/pages/splash_screen.dart';
+import 'package:todo_app_pro/features/auth/pages/auth_handler.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Todo App Pro',
       theme: mainLightTheme(),
-      home: const OnboardingScreen(),
+      home: const AuthHandler(),
     );
   }
 }

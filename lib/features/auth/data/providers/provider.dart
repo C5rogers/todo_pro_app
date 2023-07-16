@@ -13,12 +13,12 @@ class AuthProvider extends StateNotifier<AuthState> {
   /// the following method reads the app auth state from the saved values on
   /// the device , it basically starts with initial value of [AuthState]
 
-  Future<SharedPreferences> shared_preference() {
+  Future<SharedPreferences> sharedPreference() {
     return SharedPreferences.getInstance();
   }
 
   Future readAuthState() async {
-    SharedPreferences preferences = await shared_preference();
+    SharedPreferences preferences = await sharedPreference();
 
 // read the saved values
     final bool authEnabled = preferences.getBool("auth_enabled") ?? false;
@@ -42,11 +42,16 @@ class AuthProvider extends StateNotifier<AuthState> {
   }
 
   Future setLocalAuth(bool choice) async {
-    SharedPreferences preferences = await shared_preference();
+    SharedPreferences preferences = await sharedPreference();
 
     await preferences.setBool("auth_enabled", choice);
   }
 
-  void setOnboardingFinished() => state =
-      state.copyWith(authenticated: true, loading: false, initial: false);
+  Future setOnboardingFinished() async {
+    SharedPreferences preferences = await sharedPreference();
+
+    await preferences.setBool("is_initial", false);
+
+    state = state.copyWith(authenticated: true, loading: false, initial: false);
+  }
 }

@@ -109,28 +109,26 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           height: 30,
         ),
         if (currentPage == 3)
-          Container(
-            child: ListTile(
-                leading: const Icon(
-                  Icons.fingerprint,
-                  size: 30,
+          ListTile(
+              leading: const Icon(
+                Icons.fingerprint,
+                size: 30,
+              ),
+              onTap: () {
+                setState(() {
+                  _isAuthEnabled = !_isAuthEnabled;
+                });
+              },
+              title: const Text("Enable Biometrics"),
+              subtitle: const Text(
+                  "Toggle this button to enable biometrics authentication"),
+              trailing: AbsorbPointer(
+                child: CupertinoSwitch(
+                  activeColor: UiConstants.accentColor,
+                  value: _isAuthEnabled,
+                  onChanged: (v) {},
                 ),
-                onTap: () {
-                  setState(() {
-                    _isAuthEnabled = !_isAuthEnabled;
-                  });
-                },
-                title: const Text("Enable Biometrics"),
-                subtitle: const Text(
-                    "Toggle this button to enable biometrics authentication"),
-                trailing: AbsorbPointer(
-                  child: CupertinoSwitch(
-                    activeColor: UiConstants.accentColor,
-                    value: _isAuthEnabled,
-                    onChanged: (v) {},
-                  ),
-                )),
-          )
+              ))
       ],
     );
   }

@@ -9,6 +9,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.maxFinite,
       decoration:
           BoxDecoration(gradient: UiConstants.rightCornerToLeftCorner()),
       child: Column(
