@@ -24,7 +24,7 @@ class AuthProvider extends StateNotifier<AuthState> {
     final bool authEnabled = preferences.getBool("auth_enabled") ?? false;
     final bool? initialLaunch = preferences.getBool("is_initial");
 
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
 
     if (initialLaunch == null) {
       state = state.copyWith(initial: true, loading: false);

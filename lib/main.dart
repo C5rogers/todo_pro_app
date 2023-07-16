@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app_pro/config/theme/light/main.dart';
 import 'package:todo_app_pro/features/auth/pages/auth_handler.dart';
+import 'package:todo_app_pro/features/shared/database/utils/database_injector.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupDatabase();
   await EasyLocalization.ensureInitialized();
   runApp(const Application());
 }
