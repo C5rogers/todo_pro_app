@@ -47,5 +47,6 @@ class AuthProvider extends StateNotifier<AuthState> {
     await preferences.setBool("auth_enabled", choice);
   }
 
-  void setOnboardingFinished() => state = state.copyWith(initial: false);
+  void setOnboardingFinished() => state =
+      state.copyWith(authenticated: true, loading: false, initial: false);
 }
