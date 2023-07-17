@@ -129,6 +129,10 @@ class TasksDao extends DatabaseAccessor<TodoProDatabase> with _$TasksDaoMixin {
   Future updateTask(TasksCompanion task) async {
     await update(tasks).replace(task);
   }
+
+  Stream<List<Task>> searchTasks(String query) {
+    return (select(tasks)..where((a) => a.title.contains(query))).watch();
+  }
 }
 
 @DriftAccessor(tables: [Subtasks])
@@ -145,6 +149,13 @@ class SubTaskDao extends DatabaseAccessor<TodoProDatabase>
 
   Future addSubTask(SubtasksCompanion task) async {
     await into(subtasks).insert(task);
+  }
+
+  Future deleteSubTask(int task_id, int parent_id) async {
+    await (delete(subtasks)
+          ..where((tbl) => tbl.id.equals(task_id))
+          ..where((tbl) => tbl.parent_task.equals(parent_id)))
+        .go();
   }
 
   Future updateTask(SubtasksCompanion task) async {

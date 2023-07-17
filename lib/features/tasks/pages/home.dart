@@ -4,6 +4,7 @@ import 'package:todo_app_pro/features/shared/database/data/provider/database.dar
 import 'package:todo_app_pro/features/shared/database/utils/database_injector.dart';
 import 'package:todo_app_pro/features/shared/other/pages/setting_screen.dart';
 import 'package:todo_app_pro/features/shared/other/util/ui/navigator.dart';
+import 'package:todo_app_pro/features/shared/other/widgets/box_text_field.dart';
 import 'package:todo_app_pro/features/tasks/pages/categories.dart';
 import 'package:todo_app_pro/features/tasks/pages/new_task.dart';
 import 'package:todo_app_pro/features/tasks/widgets/task_card.dart';
@@ -18,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String _query = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +53,19 @@ class _HomePageState extends State<HomePage> {
                 letterSpacing: 1,
                 fontWeight: FontWeight.bold,
                 color: UiConstants.accentColor)),
+        bottom: PreferredSize(
+            preferredSize: const Size(double.maxFinite, 60),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: BoxTextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value;
+                  });
+                },
+                hint: "Search",
+              ),
+            )),
       ),
       floatingActionButton: FloatingActionButton.extended(
           elevation: 0,
@@ -58,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           },
           label: const Text("Create Task")),
       body: StreamBuilder(
-        stream: _database.tasksDao.allTasks(),
+        stream: _database.tasksDao.searchTasks(_query),
         builder: (context, AsyncSnapshot<List<Task>> snapshot) {
           final result = snapshot.data ?? [];
           return ListView.builder(
