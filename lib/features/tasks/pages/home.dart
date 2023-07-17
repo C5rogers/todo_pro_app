@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app_pro/config/constants/ui.dart';
 import 'package:todo_app_pro/features/shared/database/data/provider/database.dart';
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               color: UiConstants.accentColor,
               icon: const Icon(Icons.settings))
         ],
-        title: Text("Todo App",
+        title: Text(tr("title"),
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 letterSpacing: 1,
                 fontWeight: FontWeight.bold,

@@ -1,3 +1,8 @@
 {
-  "home": "home"
+  "title": "Todo App",
+  "home": "home",
+  "search": "search",
+  "create_task": "Create Task",
+  "save": "Save",
+  "new_task": "New Task"
 }

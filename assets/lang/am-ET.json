@@ -1,3 +1,8 @@
 {
-  "home": "home"
+  "title": "ቱዱ ኣፕ",
+  "home": "home",
+  "search": "ፈልግ",
+  "create_task": "ተግባር ፍጠር",
+  "save": "ኣስቀመጥ",
+  "new_task": "አዲስ ተግባር"
 }

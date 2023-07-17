@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -73,6 +74,38 @@ class _SettingScreenState extends State<SettingScreen> {
                   child: CupertinoSwitch(
                     activeColor: UiConstants.accentColor,
                     value: _isAuthEnabled,
+                    onChanged: (v) {},
+                  ),
+                )),
+            ListTile(
+                leading: const Icon(
+                  Icons.fingerprint,
+                  size: 30,
+                ),
+                onTap: () async {
+                  context.setLocale(const Locale('en', 'US'));
+                },
+                title: const Text("English"),
+                trailing: AbsorbPointer(
+                  child: Checkbox(
+                    activeColor: UiConstants.accentColor,
+                    value: context.locale == const Locale('en', 'US'),
+                    onChanged: (v) {},
+                  ),
+                )),
+            ListTile(
+                leading: const Icon(
+                  Icons.fingerprint,
+                  size: 30,
+                ),
+                onTap: () async {
+                  context.setLocale(const Locale('am', 'ET'));
+                },
+                title: const Text("አማርኛ"),
+                trailing: AbsorbPointer(
+                  child: Checkbox(
+                    activeColor: UiConstants.accentColor,
+                    value: context.locale == const Locale('am', 'ET'),
                     onChanged: (v) {},
                   ),
                 ))
