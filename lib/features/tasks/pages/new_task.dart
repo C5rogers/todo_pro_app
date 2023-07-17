@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app_pro/config/constants/assets.dart';
@@ -110,7 +111,7 @@ class _NewTaskFormState extends State<NewTaskForm> {
         centerTitle: false,
         automaticallyImplyLeading: false,
         elevation: 0.5,
-        title: Text("New Task",
+        title: Text(tr("new_task"),
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 letterSpacing: 1,
                 fontWeight: FontWeight.bold,
@@ -244,7 +245,7 @@ class _NewTaskFormState extends State<NewTaskForm> {
                       child: CupertinoButton(
                           borderRadius: BorderRadius.circular(30),
                           color: UiConstants.primaryColor,
-                          child: const Text("Save"),
+                          child: Text(tr("save")),
                           onPressed: () async {
                             if (_globalKey.currentState!.validate()) {
                               if (_category == null) {

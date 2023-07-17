@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     _query = value;
                   });
                 },
-                hint: "Search",
+                hint: tr("search"),
               ),
             )),
       ),
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             navigateToScreen(context, screen: const NewTaskForm());
           },
-          label: const Text("Create Task")),
+          label: Text(tr("create_task"))),
       body: StreamBuilder(
         stream: _database.tasksDao.searchTasks(_query),
         builder: (context, AsyncSnapshot<List<Task>> snapshot) {

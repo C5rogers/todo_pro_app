@@ -79,7 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 )),
             ListTile(
                 leading: const Icon(
-                  Icons.fingerprint,
+                  Icons.translate,
                   size: 30,
                 ),
                 onTap: () async {
@@ -95,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 )),
             ListTile(
                 leading: const Icon(
-                  Icons.fingerprint,
+                  Icons.translate,
                   size: 30,
                 ),
                 onTap: () async {
