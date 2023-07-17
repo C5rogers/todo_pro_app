@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app_pro/config/constants/ui.dart';
 import 'package:todo_app_pro/features/shared/database/data/provider/database.dart';
 import 'package:todo_app_pro/features/shared/database/utils/database_injector.dart';
+import 'package:todo_app_pro/features/shared/other/pages/setting_screen.dart';
 import 'package:todo_app_pro/features/shared/other/util/ui/navigator.dart';
 import 'package:todo_app_pro/features/tasks/pages/categories.dart';
 import 'package:todo_app_pro/features/tasks/pages/new_task.dart';
@@ -38,7 +39,9 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
               iconSize: 30,
-              onPressed: () {},
+              onPressed: () {
+                navigateToScreen(context, screen: const SettingScreen());
+              },
               color: UiConstants.accentColor,
               icon: const Icon(Icons.settings))
         ],

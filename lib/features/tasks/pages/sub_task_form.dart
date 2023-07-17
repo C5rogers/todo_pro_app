@@ -4,12 +4,9 @@ import 'package:todo_app_pro/config/constants/assets.dart';
 import 'package:todo_app_pro/config/constants/ui.dart';
 import 'package:todo_app_pro/features/shared/database/data/provider/database.dart';
 import 'package:todo_app_pro/features/shared/database/utils/database_injector.dart';
-import 'package:todo_app_pro/features/shared/other/util/data/date_helpers.dart';
-import 'package:todo_app_pro/features/shared/other/util/ui/date_picker.dart';
 import 'package:todo_app_pro/features/shared/other/util/ui/navigator.dart';
 import 'package:todo_app_pro/features/shared/other/widgets/box_text_field.dart';
 import 'package:todo_app_pro/features/tasks/pages/new_task.dart';
-import 'package:todo_app_pro/features/tasks/widgets/chip.dart';
 
 import 'package:drift/drift.dart' as drift;
 
